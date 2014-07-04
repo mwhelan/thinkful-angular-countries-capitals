@@ -1,0 +1,21 @@
+﻿header {
+    height: 125px;
+}
+
+header h1 {
+    vertical-align: middle;
+}
+
+.map {
+    background: url(images/map.png) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    padding: 100px 0;
+    height: 450px;
+    /*margin-top: 75px;*/
+    margin-bottom: 75px;
+    border: 1px black solid;
+}
