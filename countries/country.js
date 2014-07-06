@@ -1,7 +1,19 @@
 ﻿viewsModule.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when("/countries/:countryCode", {
         templateUrl: "./countries/country.html",
-        controller: 'CountryController'
+        controller: 'CountryController',
+        resolve: {
+            capitalPopulation: ['cacCapital', function(cacCapital) {
+                cacCapital.getCapitalPopulation()
+                .then(function(result) {
+                    var pop = result.data.geonames[0].population;
+                        return pop;
+                    })
+                .error(function(reason) {
+                        alert(reason);
+                    });
+            }]
+        }
     });
 }]);
 
