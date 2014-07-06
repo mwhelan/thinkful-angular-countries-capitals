@@ -1,1 +1,47 @@
-﻿<h2>{{data}}</h2>
+﻿<div class="container">
+    <div class="col-sm-4 col-sm-offset-4">
+        <h2>{{ country.countryName }}</h2>
+        <div class="panel panel-info">
+            <div class="panel-heading text-center">Details</div>
+            <table class="table table-striped">
+                <tr>
+                    <td class="col-sm-6 text-right">Population of Country: </td>
+                    <td class="col-sm-6">{{country.population | number}}</td>
+                </tr>
+                <tr>
+                    <td class="text-right">Area (km<sup>2</sup>): </td>
+                    <td>{{country.areaInSqKm | number}}</td>
+                </tr>
+                <tr>
+                    <td class="text-right">Capital: </td>
+                    <td>{{country.capital}}</td>
+                </tr>
+                <!--<tr>
+                        <td>Population of Capital : </td>
+                        <td>{{capitalPopulation | number}}</td>
+                    </tr>
+                    <tr>
+                        <td>Neighbor Countries : </td>
+                        <td>
+                            <span ng-if="neighbors.length >= 1" ng-repeat="n in neighbors">
+                                {{n}}<span ng-if="n != neighbors[neighbors.length-1]">, </span>
+                            </span>
+                            <span ng-if="neighbors.length < 1">N/A</span>
+                        </td>
+                    </tr>-->
+            </table> <!-- /table-->
+
+        </div> <!-- /panel-->
+    
+        <div class="row text-center">
+            <img class="img-thumbnail" ng-src="http://www.geonames.org/flags/x/{{country.countryCode | lowercase}}.gif" />
+        </div>
+        <div class="row text-center">
+            <img class="img-thumbnail" ng-src="http://www.geonames.org/img/country/250/{{country.countryCode}}.png">
+        </div>
+   
+        <a class="btn btn-primary" href="#!/">Home</a>
+        <a class="btn btn-primary" href="#!/countries">Browse Countries</a>
+
+    </div> <!-- /col-sm-4 -->
+</div> <!-- /container -->
