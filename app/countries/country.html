@@ -13,22 +13,21 @@
                 <dt class="text-right">Capital: </dt>
                 <dd>{{country.capital}}</dd>
 
-                <tr>
-                    <td>Population of Capital : </td>
-                    <td>{{capitalPopulation | number}}</td>
-                </tr>
-                  <!--  <tr>
-                        <td>Neighbor Countries : </td>
-                        <td>
-                            <span ng-if="neighbors.length >= 1" ng-repeat="n in neighbors">
-                                {{n}}<span ng-if="n != neighbors[neighbors.length-1]">, </span>
-                            </span>
-                            <span ng-if="neighbors.length < 1">N/A</span>
-                        </td>
-                    </tr>-->
+                <dt>Population of Capital : </dt>
+                <dd>{{capitalPopulation | number}}</dd>
+
+                <dt class="text-right">Continent: </dt>
+                <dd>{{country.continentName}}</dd>
+
+                <dt>{{neighbours.length}} Neighbours: </dt>
+                <dd>
+                    <ul class="list-unstyled" ng-repeat="neighbour in neighbours">
+                        <li><a ng-href="#!/countries/{{ neighbour.countryCode | uppercase }}">{{ neighbour.countryName }}</a></li>
+                    </ul>
+                </dd>
             </dl> <!-- /dl-->
 
-</div> <!-- /panel-->
+        </div> <!-- /panel-->
     
         <div class="row">
             <div class="col-sm-6">

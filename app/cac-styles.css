@@ -22,6 +22,10 @@ header h1 {
     margin-bottom: 15px;    
 }
 
+.list-unstyled {
+    margin-bottom: 0;
+}
+
 .map {
     background: url(images/map.png) no-repeat center center;
     -webkit-background-size: cover;
