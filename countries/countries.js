@@ -8,11 +8,12 @@
 ]);
 
 viewsModule.controller('CountriesController', [
-    '$scope', 'cacCountryList',
-    function($scope, cacCountryList) {
-        cacCountryList.getCountries().then(function(result) {
-            $scope.data = result.data;
-        });
+    '$scope', 'countryRepository',
+    function($scope, countryRepository) {
+        countryRepository.getCountryList()
+            .then(function(result) {
+                $scope.countries = result.geonames;
+            });
     }
 ]);
                               

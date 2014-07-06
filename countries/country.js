@@ -3,24 +3,23 @@
         templateUrl: "./countries/country.html",
         controller: 'CountryController',
         resolve: {
-            capitalPopulation: ['cacCapital', function(cacCapital) {
-                cacCapital.getCapitalPopulation()
-                .then(function(result) {
-                    var pop = result.data.geonames[0].population;
-                        return pop;
-                    })
-                .error(function(reason) {
-                        alert(reason);
-                    });
+            countryDetails: ['countryRepository', function (countryRepository) {
+                return countryRepository.getCountry();
+            }],
+            neighbourList: ['countryRepository', function (countryRepository) {
+                return countryRepository.getNeighbourList();
+            }],
+            capitalDetails: ['countryRepository', function (countryRepository) {
+                return countryRepository.getCapitalDetails();
             }]
         }
     });
 }]);
 
-viewsModule.controller('CountryController', ['$scope', 'cacCountrySingle',
-    function ($scope, cacCountrySingle) {
-        cacCountrySingle.getCountry().then(function (result) {
-            $scope.country = result.data.geonames[0];
-        });
+viewsModule.controller('CountryController', ['$scope', 'countryDetails', 'neighbourList', 'capitalDetails',
+    function ($scope, countryDetails, neighbourList, capitalDetails) {
+        $scope.country = countryDetails.geonames[0];
+        $scope.capitalPopulation = capitalDetails.geonames[0].population;
+        $scope.neighbours = neighbourList.geonames;
     }
 ]);
