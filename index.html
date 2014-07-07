@@ -17,11 +17,36 @@
 </head>
 <body>
     <!-- header -->
-    <header class="navbar navbar-static-top text-center">
-        <h1>Countries and Capitals</h1>
-    </header>
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand brand-heading" href="#!/">
+                    <i class="fa fa-play-circle"></i> Capitals and Countries
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li>
+                        <a href="#!/">Home</a>
+                    </li>
+                    <li>
+                        <a href="#!/countries">Browse Countries</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
     
-    <div ng-view></div>        
+    <section class="intro">
+        <div class="intro-body">
+            <div ng-view></div>            
+        </div>
+    </section>
 
     <!-- build:js ./_assets/combined.js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
