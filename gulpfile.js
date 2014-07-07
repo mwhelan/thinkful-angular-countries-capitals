@@ -20,7 +20,7 @@ gulp.task('jshint', function() {
 
 gulp.task('copy-html-files', function () {
     gulp.src(['./app/**/*.html', '!./app/index.html'], { base: './app' })
-      .pipe(gulp.dest('build/'));
+      .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('usemin', function () {
@@ -29,7 +29,7 @@ gulp.task('usemin', function () {
           css: [minifyCss(), 'concat', rev()],
           js: [uglify(), rev()]
       }))
-      .pipe(gulp.dest('build/'));
+      .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('connect', function () {
