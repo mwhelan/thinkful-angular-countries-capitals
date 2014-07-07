@@ -38,6 +38,13 @@ gulp.task('connect', function () {
     });
 });
 
+gulp.task('connectDist', function () {
+    connect.server({
+        root: 'dist/',
+        port: 8090
+    });
+});
+
 // Default Task
 gulp.task('default', ['connect']);
 gulp.task('build', ['copy-html-files', 'usemin']);
