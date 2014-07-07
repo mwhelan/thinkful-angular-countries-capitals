@@ -16,6 +16,12 @@ table {
     color: black;
 }
 
+.scrollTable {
+    height: 400px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
 dl {
     color: black;
 }
