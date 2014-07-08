@@ -43,11 +43,11 @@
                 // may have to normalize it on our end, as best we can.
                 if (!angular.isObject(response.data) ||
                     !response.data.message) {
-                    return ($q.reject("An unknown error occurred."));
+                    throw("An unknown error occurred.");
                 }
 
                 // Otherwise, use expected error message.
-                return ($q.reject(response.data.message));
+                throw(response.data.message);
             }
 
             // Transform the successful response, unwrapping the application data

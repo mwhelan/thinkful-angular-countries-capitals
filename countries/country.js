@@ -1,25 +1,15 @@
-﻿viewsModule.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when("/countries/:countryCode", {
-        templateUrl: "./countries/country.html",
-        controller: 'CountryController',
-        resolve: {
-            countryDetails: ['countryRepository', function (countryRepository) {
-                return countryRepository.getCountry();
-            }],
-            neighbourList: ['countryRepository', function (countryRepository) {
-                return countryRepository.getNeighbourList();
-            }],
-            capitalDetails: ['countryRepository', function (countryRepository) {
-                return countryRepository.getCapitalDetails();
-            }]
+﻿angular.module('cacApp')
+    .controller('CountryController', [
+        '$scope', 'countryRepository',
+        function($scope, countryRepository) {
+            countryRepository.getCountry().then(function(result) {
+                $scope.country = result.geonames[0];
+            });
+            countryRepository.getNeighbourList().then(function(result) {
+                $scope.neighbours = result.geonames;
+            });
+            countryRepository.getCapitalDetails().then(function(result) {
+                $scope.capitalPopulation = result.geonames[0].population;
+            });
         }
-    });
-}]);
-
-viewsModule.controller('CountryController', ['$scope', 'countryDetails', 'neighbourList', 'capitalDetails',
-    function ($scope, countryDetails, neighbourList, capitalDetails) {
-        $scope.country = countryDetails.geonames[0];
-        $scope.capitalPopulation = capitalDetails.geonames[0].population;
-        $scope.neighbours = neighbourList.geonames;
-    }
-]);
+    ]);
